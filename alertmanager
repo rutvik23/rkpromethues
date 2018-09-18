@@ -1,0 +1,21 @@
+apiVersion: v1
+data:
+  alertmanager.yml: |
+    global:
+    route:
+      receiver: 'slack'
+      group_by: [alertname, datacenter, app]
+
+    receivers:
+      - name: 'slack'
+        slack_configs:
+         - channel: '#demo'
+           api_url: 'https://hooks.slack.com/services/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'
+kind: ConfigMap
+metadata:
+  creationTimestamp: 2018-09-18T12:38:24Z
+  name: alertmanager
+  namespace: openshift-metrics
+  resourceVersion: "684037"
+  selfLink: /api/v1/namespaces/openshift-metrics/configmaps/alertmanager
+  uid: bbc0b874-bb3f-11e8-a1fa-fa163e551d50
